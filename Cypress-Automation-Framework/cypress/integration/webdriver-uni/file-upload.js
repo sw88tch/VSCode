@@ -4,7 +4,7 @@ describe("Test File Upload via webdriveruni", () => {
     it("Upload a file....", () => {
         cy.visit("http://www.webdriveruniversity.com")
         cy.get('#file-upload').invoke('removeAttr', 'target').click({force:true})
-
+                // file at cypress/fixtures
         cy.fixture("laptop.png", "base64").then(fileContent => {
             cy.get("#myFile").attachFile(
                 {
