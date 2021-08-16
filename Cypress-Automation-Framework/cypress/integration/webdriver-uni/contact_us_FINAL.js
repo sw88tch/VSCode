@@ -7,9 +7,9 @@ describe("Test Contact Us form via WebdriverUni", () => {
         cy.title().should('include', 'WebDriver | Contact Us')
         cy.url().should('include', 'contactus')
         //cy.get('#contact-us').click({force: true})
-        cy.get('[name="first_name"]').type("Joe");
-        cy.get('[name="last_name"]').type("blogs");
-        cy.get('[name="email"]').type("joe_blogs123@gmail.com")
+        cy.get('[name="first_name"]').type("Kirill");
+        cy.get('[name="last_name"]').type("tests");
+        cy.get('[name="email"]').type("for_test123@gmail.com")
         cy.get('textarea.feedback-input').type("How can I learn Cypress?")
         cy.get('[type="submit"]').click();
         cy.get('h1').should('have.text', 'Thank You for your Message!')
