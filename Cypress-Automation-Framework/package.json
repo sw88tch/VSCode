@@ -1,0 +1,24 @@
+{
+  "name": "cypress-automation-framework",
+  "version": "1.0.0",
+  "description": "Cypress Automation Framework",
+  "main": "index.js",
+  "scripts": {
+    "triggerAllTests-headless": "npx cypress run",
+    "triggerAllTests-headed": "npx cypress run --headed",
+    "triggerAllTests-chrome": "npx cypress run --browser chrome",
+    "triggerAllTests-dashboard": "npx cypress run --record --key fd44cf85-ece9-448c-a94e-58ce97eed05b",
+    "triggerAllTests-webdriveruni": "npx cypress run --spec cypress/integration/webdriver-uni/*",
+    "triggerAllTests-auto-t-store": "npx cypress run --spec cypress/integration/auto-t-store/*"
+  },
+  "author": "Kalinin Kirill",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^8.3.0",
+    "cypress-file-upload": "^5.0.8",
+    "cypress-multi-reporters": "^1.5.0",
+    "cypress-xpath": "^1.6.2",
+    "mocha": "^9.0.3",
+    "mocha-junit-reporter": "^2.0.0"
+  }
+}
