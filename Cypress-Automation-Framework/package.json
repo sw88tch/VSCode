@@ -7,18 +7,20 @@
     "triggerAllTests-headless": "npx cypress run",
     "triggerAllTests-headed": "npx cypress run --headed",
     "triggerAllTests-chrome": "npx cypress run --browser chrome",
-    "triggerAllTests-dashboard": "npx cypress run --record --key fd44cf85-ece9-448c-a94e-58ce97eed05b",
+    "triggerAllTests-dashboard": "npx cypress run --record --key 8ea00e6c-0795-4bca-ad07-ed0a158d3f30",
     "triggerAllTests-webdriveruni": "npx cypress run --spec cypress/integration/webdriver-uni/*",
-    "triggerAllTests-auto-t-store": "npx cypress run --spec cypress/integration/auto-t-store/*"
+    "junit-merge": "npx junit-merge -d cypress/results/junit -o cypress/results/junit/results.xml",
+    "delete-junit-report": "rm -rf cypress/results/junit/results.xml",
+    "delete-results": "rm -rf cypress/results/* || true"
   },
-  "author": "Kalinin Kirill",
+  "author": "Gianni Bruno",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^8.3.0",
-    "cypress-file-upload": "^5.0.8",
-    "cypress-multi-reporters": "^1.5.0",
-    "cypress-xpath": "^1.6.2",
-    "mocha": "^9.0.3",
+    "cypress": "^4.9.0",
+    "cypress-file-upload": "^4.0.7",
+    "cypress-multi-reporters": "^1.4.0",
+    "cypress-xpath": "^1.4.0",
+    "mocha": "^8.0.1",
     "mocha-junit-reporter": "^2.0.0"
   }
 }
