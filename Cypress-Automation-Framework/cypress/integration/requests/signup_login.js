@@ -2,22 +2,34 @@
 
 describe("Signup", () => {
     let randomString = Math.random().toString(36).substring(2);
+    let username = 'auto' + randomString;
+    let email = 'auto_' + randomString + '@gmail.com';
+    let password = "Password1";    
 
     it("Test valid signup", () => {
         cy.server();
         cy.route("POST", " **/users").as("newUser");
         cy.visit("http://localhost:4200/");
         cy.get(".nav").contains("Sign up").click();
-        cy.get("[placeholder='Username']").type("Auto" + randomString);
-        cy.get("[placeholder='Email']").type("Auto_email" + randomString + "@gmail.com");
-        cy.get("[placeholder='Password']").type("Password1");
+        cy.get("[placeholder='Username']").type(username);
+        cy.get("[placeholder='Email']").type(email);
+        cy.get("[placeholder='Password']").type(password);
         cy.get("button").contains("Sign up").click();
 
         cy.wait("@newUser")
         cy.get("@newUser").should((xhr) => {
             expect(xhr.status).to.eq(200); 
-            expect(xhr.request.body.user.username).to.eq("Auto" + randomString); 
-            expect(xhr.request.body.user.email).to.eq("Auto_email" + randomString + "@gmail.com"); 
+            expect(xhr.request.body.user.username).to.eq(username); 
+            expect(xhr.request.body.user.email).to.eq(email); 
         })
+    })
+
+    it("Test valid login", () => {
+        cy.visit("http://localhost:4200/");
+        cy.get(".nav").contains("Sign in").click();
+        cy.get("[placeholder='Email']").type(email);
+        cy.get("[placeholder='Password']").type(password);
+        cy.get("button").contains("Sign in").click();
+        cy.get(':nth-child(4) > .nav-link').should('be.visible')
     })
 })
